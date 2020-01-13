@@ -1,0 +1,55 @@
+﻿<Page
+    x:Class="project_ramverket.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:fa="using:FontAwesome.UWP"
+    xmlns:local="using:project_ramverket"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Background="Red" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <NavigationView Name="nv"
+                        Grid.Column="1"
+                        IsBackButtonVisible="Collapsed"
+                        IsSettingsVisible="False"
+                        IsPaneOpen="False"
+                        SelectionChanged="MenuSelected">
+                <NavigationView.MenuItems>
+                    <NavigationViewItem Content="Get cat fact" Tag="catFact">
+                        <NavigationViewItem.Icon>
+                            <fa:FontAwesome Icon="Paw"></fa:FontAwesome>
+                        </NavigationViewItem.Icon>
+                    </NavigationViewItem>
+                    <NavigationViewItem Content="Programming jokes" Tag="programmingJoke">
+                        <NavigationViewItem.Icon>
+                            <fa:FontAwesome Icon="Terminal"></fa:FontAwesome>
+                        </NavigationViewItem.Icon>
+                    </NavigationViewItem>
+                    <NavigationViewItem x:Name="HiddenItem" Visibility="Collapsed"/>
+                </NavigationView.MenuItems>
+                <Frame x:Name="ContentFrame"/>
+            </NavigationView>
+            <Grid Grid.Column="2">
+                <Image x:Name="catImg" Height="500" Width="300" HorizontalAlignment="Center"></Image>
+                <TextBlock Name="Result" HorizontalAlignment="Center" Margin="10" Width="500" TextWrapping="Wrap"/>
+                <MediaElement x:Name="mediaElement"></MediaElement>
+            </Grid>
+            
+        </Grid>
+        
+    </Grid>
+</Page>
