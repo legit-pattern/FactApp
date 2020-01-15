@@ -15,7 +15,9 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
+        <TextBlock Grid.Row="0" Name="Header" Text="{x:Bind BaseHeader.HeaderName, Mode=OneWay}" />
+
         <Grid Background="Red" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -29,17 +31,16 @@
                         IsPaneOpen="False"
                         SelectionChanged="MenuSelected">
                 <NavigationView.MenuItems>
-                    <NavigationViewItem Content="Get cat fact" Tag="catFact">
+                    <NavigationViewItem Content="Get cat fact" Tag="catFact" Tapped="NavigationViewItem_Tapped1">
                         <NavigationViewItem.Icon>
                             <fa:FontAwesome Icon="Paw"></fa:FontAwesome>
                         </NavigationViewItem.Icon>
                     </NavigationViewItem>
-                    <NavigationViewItem Content="Programming jokes" Tag="programmingJoke">
+                    <NavigationViewItem Content="Programming jokes" Tag="programmingJoke" Tapped="NavigationViewItem_Tapped2">
                         <NavigationViewItem.Icon>
                             <fa:FontAwesome Icon="Terminal"></fa:FontAwesome>
                         </NavigationViewItem.Icon>
                     </NavigationViewItem>
-                    <NavigationViewItem x:Name="HiddenItem" Visibility="Collapsed"/>
                 </NavigationView.MenuItems>
                 <Frame x:Name="ContentFrame"/>
             </NavigationView>

@@ -7,11 +7,35 @@ using Windows.UI.Xaml.Media.Imaging;
 using project_ramverket;
 using Windows.Media.SpeechSynthesis;
 using System.Linq;
+using System.ComponentModel;
 
 namespace project_ramverket
 {
     public sealed partial class MainPage : Page
     {
+        public class NotifyPropertyChanged : INotifyPropertyChanged
+        {
+            public event PropertyChangedEventHandler PropertyChanged;
+            public void OnPropertyRaised(string propName)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+            }
+        }
+        public BaseItem BaseHeader { get; set; } = new BaseItem();
+
+        public class BaseItem : NotifyPropertyChanged
+        {
+            string _header = string.Empty;
+            public string HeaderName
+            {
+                get { return _header; }
+                set
+                {
+                    _header = value; OnPropertyRaised("HeaderName");
+                }
+            }
+        }
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -35,7 +59,9 @@ namespace project_ramverket
             catImg.Source = new BitmapImage(new Uri(resImg.img.ToString(), UriKind.Absolute));
             Result.Text = res.en;
             //var tmp = resImg.transcript.Replace('[', ' ');
-            ReadText(res.en);
+
+            // Voice thingie
+            //ReadText(res.en);
         }
 
         private async void ReadText(string mytext)
@@ -50,16 +76,17 @@ namespace project_ramverket
         private void MenuSelected(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
             var item = nv.SelectedItem as NavigationViewItem;
-            switch (item.Tag)
-            {
-                case "catFact":
-                    Button_Click(null, null);
-                    break;
-                case "programmingJoke":
-                    Get_Programming_Joke();
-                    break;
-            }
-            nv.SelectedItem = HiddenItem;
+            BaseHeader.HeaderName = item.Content.ToString();
+        }
+
+        private void NavigationViewItem_Tapped2(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            Get_Programming_Joke();
+        }
+
+        private void NavigationViewItem_Tapped1(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            Button_Click(null, null);
         }
     }
 }
