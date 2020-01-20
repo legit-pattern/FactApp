@@ -134,6 +134,12 @@
     <Compile Include="Processor\ProgrammingProcessor.cs" />
     <Compile Include="Processor\XkcdProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\CatView.xaml.cs">
+      <DependentUpon>CatView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProgrammerView.xaml.cs">
+      <DependentUpon>ProgrammerView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -158,6 +164,14 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CatView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProgrammerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

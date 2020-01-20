@@ -16,9 +16,9 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Name="Header" Text="{x:Bind BaseHeader.HeaderName, Mode=OneWay}" />
+        <TextBlock Grid.Row="0" Name="Header" FontFamily="Arial" FontWeight="Bold" VerticalAlignment="Center" FontSize="32px" HorizontalAlignment="Center" Text="{x:Bind BaseHeader.HeaderName, Mode=OneWay}" />
 
-        <Grid Background="Red" Grid.Row="1">
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -31,23 +31,31 @@
                         IsPaneOpen="False"
                         SelectionChanged="MenuSelected">
                 <NavigationView.MenuItems>
-                    <NavigationViewItem Content="Get cat fact" Tag="catFact" Tapped="NavigationViewItem_Tapped1">
+                    <NavigationViewItem Content="Get cat fact" Tag="catFact">
                         <NavigationViewItem.Icon>
                             <fa:FontAwesome Icon="Paw"></fa:FontAwesome>
                         </NavigationViewItem.Icon>
                     </NavigationViewItem>
-                    <NavigationViewItem Content="Programming jokes" Tag="programmingJoke" Tapped="NavigationViewItem_Tapped2">
+                    <NavigationViewItem Content="Programming jokes" Tag="programmingJoke">
                         <NavigationViewItem.Icon>
                             <fa:FontAwesome Icon="Terminal"></fa:FontAwesome>
                         </NavigationViewItem.Icon>
                     </NavigationViewItem>
+                    
                 </NavigationView.MenuItems>
+                
+                    <NavigationView.PaneFooter>
+                        <NavigationViewItem Content="About" Tag="about">
+                            <NavigationViewItem.Icon>
+                                <fa:FontAwesome Icon="Asterisk"></fa:FontAwesome>
+                            </NavigationViewItem.Icon>
+                        </NavigationViewItem>
+                    </NavigationView.PaneFooter>
+                
                 <Frame x:Name="ContentFrame"/>
             </NavigationView>
+
             <Grid Grid.Column="2">
-                <Image x:Name="catImg" Height="500" Width="300" HorizontalAlignment="Center"></Image>
-                <TextBlock Name="Result" HorizontalAlignment="Center" Margin="10" Width="500" TextWrapping="Wrap"/>
-                <MediaElement x:Name="mediaElement"></MediaElement>
             </Grid>
             
         </Grid>
