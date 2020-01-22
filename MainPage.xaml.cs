@@ -9,7 +9,6 @@ using Windows.Media.SpeechSynthesis;
 using System.Linq;
 using System.ComponentModel;
 using project_ramverket.Views;
-using Windows.UI.Popups;
 
 namespace project_ramverket
 {
@@ -56,6 +55,7 @@ namespace project_ramverket
             }
         }
 
+        public object invokedItem { get; set; }
         public MainPage()
         {
             this.InitializeComponent();
@@ -66,19 +66,44 @@ namespace project_ramverket
         {
             var item = nv.SelectedItem as NavigationViewItem;
             BaseHeader.HeaderName = item.Content.ToString();
-
+            
             switch (item.Tag)
             {
                 case "catFact":
-                    BaseHeader.SelectedItem = "cat";
                     ContentFrame.Navigate(typeof(CatView));
                     BaseHeader.HeaderImage = "Assets/cat-whiskers-kitty-tabby-20787.jpg";
                     break;
                 case "programmingJoke":
-                    BaseHeader.SelectedItem = "dev";
                     ContentFrame.Navigate(typeof(ProgrammerView));
                     BaseHeader.HeaderImage = "Assets/gray-laptop-computer-showing-html-codes-in-shallow-focus-160107.jpg";
                     break;
+            }
+            count = 0;
+        }
+
+        public int count;
+        private void NavigationViewItem_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            var item = nv.SelectedItem as NavigationViewItem;
+            if (item.IsSelected)
+            {
+                count += 1;
+                BaseHeader.SelectedItem = item.Tag.ToString();
+            }
+
+            if (count > 1 && BaseHeader.SelectedItem == item.Tag.ToString())
+            {
+                count = 1;
+                if (item.Tag.ToString() == "catFact")
+                {
+                    CatView invokedItem = ContentFrame.Content as CatView;
+                    invokedItem.Button_Click(null, null);
+                }
+                if (item.Tag.ToString() == "programmingJoke")
+                {
+                    ProgrammerView invokedItem = ContentFrame.Content as ProgrammerView;
+                    invokedItem.Get_Programming_Joke(null, null);
+                }
             }
         }
     }

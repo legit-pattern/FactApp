@@ -35,12 +35,12 @@
                         IsPaneOpen="False"
                         SelectionChanged="MenuSelected">
                 <NavigationView.MenuItems>
-                    <NavigationViewItem Content="Get cat fact" Tag="catFact">
+                    <NavigationViewItem Content="Get cat fact" Tag="catFact" Tapped="NavigationViewItem_Tapped">
                         <NavigationViewItem.Icon>
                             <fa:FontAwesome Icon="Paw"></fa:FontAwesome>
                         </NavigationViewItem.Icon>
                     </NavigationViewItem>
-                    <NavigationViewItem Content="Programming jokes" Tag="programmingJoke">
+                    <NavigationViewItem Content="Programming jokes" Tag="programmingJoke" Tapped="NavigationViewItem_Tapped">
                         <NavigationViewItem.Icon>
                             <fa:FontAwesome Icon="Terminal"></fa:FontAwesome>
                         </NavigationViewItem.Icon>
