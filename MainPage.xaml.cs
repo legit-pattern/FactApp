@@ -66,6 +66,7 @@ namespace project_ramverket
         {
             var item = nv.SelectedItem as NavigationViewItem;
             BaseHeader.HeaderName = item.Content.ToString();
+
             switch (item.Tag)
             {
                 case "catFact":

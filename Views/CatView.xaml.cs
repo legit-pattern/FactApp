@@ -27,6 +27,7 @@ namespace project_ramverket.Views
         public CatView()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Enabled;
         }
 
         public async void Button_Click(object sender, RoutedEventArgs e)

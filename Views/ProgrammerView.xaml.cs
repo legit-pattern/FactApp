@@ -27,6 +27,7 @@ namespace project_ramverket.Views
         public ProgrammerView()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Enabled;
         }
         public async void Get_Programming_Joke(object sender, RoutedEventArgs e)
         {
