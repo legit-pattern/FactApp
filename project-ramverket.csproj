@@ -147,10 +147,13 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\cat-whiskers-kitty-tabby-20787.jpg">
+    <Content Include="Assets\cat.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\gray-laptop-computer-showing-html-codes-in-shallow-focus-160107.jpg">
+    <Content Include="Assets\programming.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\background.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Properties\Default.rd.xml" />
