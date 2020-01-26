@@ -10,7 +10,7 @@
     
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="Gray">
+    <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
@@ -18,7 +18,26 @@
 
         <Grid Grid.Row="0" Background="Transparent">
             <Image Source="{x:Bind BaseHeader.HeaderImage, Mode=OneWay}" Stretch="UniformToFill" />
-            <TextBlock Grid.Row="0" Name="Header" FontFamily="Arial" FontWeight="Bold" VerticalAlignment="Center" FontSize="32px" HorizontalAlignment="Center" Text="{x:Bind BaseHeader.HeaderName, Mode=OneWay}" />
+            <Rectangle Stretch="Fill" Height="100">
+                <Rectangle.Fill>
+                    <LinearGradientBrush Opacity="0.5" StartPoint="0, 0.5" EndPoint="1, 0.5">
+                        <GradientStop Color="White" Offset="0.0" />
+                        <GradientStop Color="Black" Offset="0.5" />
+                        <GradientStop Color="White" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <TextBlock
+                Grid.Row="0"
+                Name="Header"
+                FontFamily="Arial"
+                FontWeight="Bold"
+                FontSize="32px"
+                VerticalAlignment="Center"
+                Foreground="White"
+                HorizontalAlignment="Center"
+                Text="{x:Bind BaseHeader.HeaderName, Mode=OneWay}"
+            />
         </Grid>
 
 
@@ -35,12 +54,12 @@
                         IsPaneOpen="False"
                         SelectionChanged="MenuSelected">
                 <NavigationView.MenuItems>
-                    <NavigationViewItem Content="Get cat fact" Tag="catFact" Tapped="NavigationViewItem_Tapped">
+                    <NavigationViewItem Content="Cat Facts" Tag="catFact" Tapped="NavigationViewItem_Tapped">
                         <NavigationViewItem.Icon>
                             <fa:FontAwesome Icon="Paw"></fa:FontAwesome>
                         </NavigationViewItem.Icon>
                     </NavigationViewItem>
-                    <NavigationViewItem Content="Programming jokes" Tag="programmingJoke" Tapped="NavigationViewItem_Tapped">
+                    <NavigationViewItem Content="Programming Jokes" Tag="programmingJoke" Tapped="NavigationViewItem_Tapped">
                         <NavigationViewItem.Icon>
                             <fa:FontAwesome Icon="Terminal"></fa:FontAwesome>
                         </NavigationViewItem.Icon>
