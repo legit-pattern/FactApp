@@ -27,7 +27,7 @@ namespace project_ramverket
         public class BaseItem : NotifyPropertyChanged
         {
             string _header = "Welcome to FunFacts!";
-            string _image = "Assets/cat-whiskers-kitty-tabby-20787.jpg";
+            string _image = "Assets/background.jpg";
             string _selected = "";
             public string HeaderName
             {
@@ -71,11 +71,11 @@ namespace project_ramverket
             {
                 case "catFact":
                     ContentFrame.Navigate(typeof(CatView));
-                    BaseHeader.HeaderImage = "Assets/cat-whiskers-kitty-tabby-20787.jpg";
+                    BaseHeader.HeaderImage = "Assets/cat.jpg";
                     break;
                 case "programmingJoke":
                     ContentFrame.Navigate(typeof(ProgrammerView));
-                    BaseHeader.HeaderImage = "Assets/gray-laptop-computer-showing-html-codes-in-shallow-focus-160107.jpg";
+                    BaseHeader.HeaderImage = "Assets/programming.jpg";
                     break;
             }
             count = 0;
