@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Background="Transparent">
-            <Image Source="{x:Bind BaseHeader.HeaderImage, Mode=OneWay}" Stretch="UniformToFill" />
+            <Image Source="{x:Bind BaseHeader.HeaderImage, Mode=OneWay}" Stretch="UniformToFill"/>
             <TextBlock Grid.Row="0" Name="Header" FontFamily="Arial" FontWeight="Bold" VerticalAlignment="Center" FontSize="32px" HorizontalAlignment="Center" Text="{x:Bind BaseHeader.HeaderName, Mode=OneWay}" />
         </Grid>
 
