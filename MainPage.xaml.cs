@@ -1,14 +1,8 @@
 ﻿using project_ramverket.DataProvider;
-using project_ramverket.Processor;
-using System;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media.Imaging;
-using project_ramverket;
-using Windows.Media.SpeechSynthesis;
-using System.Linq;
 using System.ComponentModel;
 using project_ramverket.Views;
+using Windows.UI.ViewManagement;
 
 namespace project_ramverket
 {
@@ -26,7 +20,7 @@ namespace project_ramverket
 
         public class BaseItem : NotifyPropertyChanged
         {
-            string _header = "Welcome to FunFacts!";
+            string _header = "Welcome to Fun Facts App!";
             string _image = "Assets/background.jpg";
             string _selected = "";
             public string HeaderName
@@ -60,6 +54,7 @@ namespace project_ramverket
         {
             this.InitializeComponent();
             ApiHelper.InitClient();
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Windows.Foundation.Size(500, 500));
         }
 
         private void MenuSelected(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -76,6 +71,10 @@ namespace project_ramverket
                 case "programmingJoke":
                     ContentFrame.Navigate(typeof(ProgrammerView));
                     BaseHeader.HeaderImage = "Assets/programming.jpg";
+                    break;
+                case "about":
+                    ContentFrame.Navigate(typeof(AboutView));
+                    BaseHeader.HeaderImage = "Assets/background.jpg";
                     break;
             }
             count = 0;
@@ -105,6 +104,7 @@ namespace project_ramverket
                     invokedItem.Get_Programming_Joke(null, null);
                 }
             }
+            nv.IsPaneOpen = false;
         }
     }
 }

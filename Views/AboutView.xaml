@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="project_ramverket.Views.AboutView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:project_ramverket.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid HorizontalAlignment="Center">
+        <StackPanel HorizontalAlignment="Center">
+            <Image Source="../Assets/Square150x150Logo.scale-200.png" MaxWidth="250" HorizontalAlignment="Center" Margin="20"></Image>
+            <TextBlock HorizontalAlignment="Center" TextAlignment="Center" Padding="0 0 0 20" FontSize="28" FontWeight="Bold">
+                FunFacts App
+            </TextBlock>
+            <Grid HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" HorizontalAlignment="Center" TextAlignment="Center" Padding="10">Fatlum Ibishi</TextBlock>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Center" TextAlignment="Center" Padding="10">Mathias Ögärd</TextBlock>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>
