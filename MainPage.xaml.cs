@@ -21,8 +21,6 @@ namespace project_ramverket
         public class BaseItem : NotifyPropertyChanged
         {
             string _header = "Welcome to Fun Facts App!";
-            string _image = "Assets/background.jpg";
-            string _selected = "";
             public string HeaderName
             {
                 get { return _header; }
@@ -31,6 +29,7 @@ namespace project_ramverket
                     _header = value; OnPropertyRaised("HeaderName");
                 }
             }
+            string _image = "Assets/background.jpg";
             public string HeaderImage
             {
                 get { return _image; }
@@ -39,6 +38,7 @@ namespace project_ramverket
                     _image = value; OnPropertyRaised("HeaderImage");
                 }
             }
+            string _selected = "";
             public string SelectedItem
             {
                 get { return _selected; }
@@ -49,7 +49,6 @@ namespace project_ramverket
             }
         }
 
-        public object invokedItem { get; set; }
         public MainPage()
         {
             this.InitializeComponent();
@@ -80,6 +79,7 @@ namespace project_ramverket
             count = 0;
         }
 
+        // Count: Used to simulate navigation view button click after it's been selected
         public int count;
         private void NavigationViewItem_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
